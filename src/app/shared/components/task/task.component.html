@@ -1,0 +1,11 @@
+<div class="task-preview background-elements layout-elements">
+  <div>
+    <h2>{{ task.title }}</h2>
+    <p>Создано: {{ task.date }}</p>
+    <p>Приоритет: {{ task.priority }}</p>
+    <p>Отметки: {{ task.label }}</p>
+  </div>
+  <button class="hide-button"
+    [routerLink]="['/task', task.id]"
+  >Открыть</button>
+</div>

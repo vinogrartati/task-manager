@@ -1,0 +1,18 @@
+.task-preview {
+  position: relative;
+}
+
+.hide-button {
+  border: 1px solid black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+}

@@ -1,0 +1,64 @@
+<div class="grid-main">
+  <button routerLink="/create" class="grid-button button-blue">Добавить задачу</button>
+  <div class="grid-filter filter-control">
+      <div class="background-elements layout-elements">
+        <h5>Сортировка</h5>
+          <label>
+            <input type="radio" name="sort" value="new">
+            Новые
+          </label>
+          <br> <!-- ????-->
+          <label>
+            <input type="radio" name="sort" value="old">
+            Старые
+          </label>
+      </div>
+      <div class="priority-label background-elements layout-elements">
+        <div>
+          <h5>Приоритет</h5>
+            <label>
+              <input type="checkbox" name="priority" value="low">
+              Low
+            </label>
+            <br> <!-- ????-->
+            <label>
+              <input type="checkbox" name="priority" value="normal">
+              Normal
+            </label>
+            <br> <!-- ????-->
+            <label>
+              <input type="checkbox" name="priority" value="high">
+              High
+            </label>
+        </div>
+        <div>
+          <h5>Отметка</h5>
+          <label>
+            <input type="checkbox" name="priority" value="research">
+            Research
+          </label>
+          <br> <!-- ????-->
+          <label>
+            <input type="checkbox" name="priority" value="design">
+            Design
+          </label>
+          <br> <!-- ????-->
+          <label>
+            <input type="checkbox" name="priority" value="development">
+            Development
+          </label>
+        </div>
+      </div>
+  </div>
+  <div class="grid-tasks"
+    *ngIf="tasks; else loading"
+  >
+    <app-task
+      *ngFor="let task of tasks"
+      [task]="task"
+    ></app-task>
+  </div>
+  <ng-template #loading>
+    <p>Загрузка задач...</p>
+  </ng-template>
+</div>

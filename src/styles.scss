@@ -1,1 +1,129 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+  /* НАДО ПОМЕНЯТЬ ПОТОМ */
+  --primary-color: #dc3545;
+  --dark-color: #333333;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #f8fafe;
+  color: #434343;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li.active a {
+  color: var(--dark-color);
+  font-weight: bold;
+  cursor: default;
+}
+
+button {
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 50px;
+}
+
+h5 {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+//стандартное отображение элементов формы
+textarea:focus, input:focus {
+  outline: none;
+}
+
+//голубая кнопка и наведение на неё
+
+.button-blue {
+  background-color: #0590dd;
+  color: #fff;
+  font-size: 18px;
+}
+
+.button-blue:hover {
+  background-color: #5ca3db;
+}
+
+.button-blue:disabled {
+  background-color: #5ca3db;
+  cursor: not-allowed;
+}
+
+//белая кнопка
+.button-white {
+  background-color: #fff;
+  border: 2px solid #eeeff0;
+}
+
+.button-white:hover {
+  background-color: #cecece;
+}
+
+
+// оформление фона и обводки для элементов
+.background-elements {
+  background: #fff;
+  border: 2px solid #eeeff0;
+}
+
+// отступы элементов
+.layout-elements {
+  padding: 0 15px 10px;
+  margin-bottom: 20px;
+}
+
+//убрать тень с ios
+input:not([type=checkbox]):not([type=radio]),
+textarea {
+  appearance: none;
+}
+
+
+select {
+  //НАДО ОБДУМАТЬ
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+label {
+  display: block;
+}
+
+//оформление чекбокса
+//input {
+//  display: none;
+//}
+//
+//label:before {
+//  position: absolute;
+//  content: '';
+//  background: url(assets/images/1.png) no-repeat center;
+//  background-size: 10px auto;
+//  width: 10px;
+//  height: 10px;
+//  border: 1px solid #0590dd;
+//  padding: 2px;
+//  background-color: #fff;
+//}
