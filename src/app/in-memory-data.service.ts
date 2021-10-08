@@ -36,10 +36,4 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
     return {tasks}
   }
-
-  genId(tasks: Task[]) {
-    //ошибка из-за того, что в интерфейсе не обязателен айдишник
-    //return tasks.length > 0 ? Math.max(...tasks.map(task => task.id)) + 1 : 1;
-
-  }
 }

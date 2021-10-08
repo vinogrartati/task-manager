@@ -1,46 +1,39 @@
-import {Component, DoCheck, OnDestroy, OnInit} from '@angular/core';
-import {TasksService} from "../shared/tasks.service";
+import { Component, OnInit } from '@angular/core';
+import {TasksService} from "../../tasks.service";
 import {Subscription} from "rxjs";
-import {Task} from "../shared/interfaces";
-import {combineAll} from "rxjs/operators";
+import {Task} from "../../interfaces";
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  selector: 'app-filter',
+  templateUrl: './filter.component.html',
+  styleUrls: ['./filter.component.scss']
 })
-export class HomePageComponent implements OnInit, OnDestroy, DoCheck {
+export class FilterComponent implements OnInit {
+
   tasks: Task[]
   tSub: Subscription
 
-  sortBy = '';
   highValue = localStorage.getItem('high') === null ? true : localStorage.getItem('high') === 'true';
   normalValue = localStorage.getItem('normal') === null ? true : localStorage.getItem('normal') === 'true';
   lowValue = localStorage.getItem('low') === null ? true : localStorage.getItem('low') === 'true';
+
   public priorityList = {
     low: this.lowValue,
     normal: this.normalValue,
     high: this.highValue
   }
 
-  constructor(private tasksService: TasksService) { }
+  constructor(
+    private tasksService: TasksService
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getTasks();
-  }
-
-  ngOnDestroy() {
-    if (this.tSub) {
-      this.tSub.unsubscribe();
-    }
   }
 
   getTasks(): void {
     this.tSub = this.tasksService.getTasks()
       .subscribe(tasks => this.tasks = tasks);
-  }
-
-  ngDoCheck() {
   }
 
   saveHigh() {

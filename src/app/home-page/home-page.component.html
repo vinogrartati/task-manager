@@ -4,7 +4,8 @@
       <div class="background-elements layout-elements">
         <h5>Сортировка</h5>
           <label>
-            <input type="radio" name="sort" value="new">
+            <input type="radio" name="sort" value="new"
+                   [(ngModel)]="sortBy">
             Новые
           </label>
           <br> <!-- ????-->
@@ -17,17 +18,24 @@
         <div>
           <h5>Приоритет</h5>
             <label>
-              <input type="checkbox" name="priority" value="low">
+              <input type="checkbox" name="priority" value="low"
+                     [(ngModel)]="priorityList.low"
+                     (ngModelChange)="getTasks(); saveLow()">
               Low
             </label>
             <br> <!-- ????-->
             <label>
-              <input type="checkbox" name="priority" value="normal">
+              <input type="checkbox" name="priority" value="normal"
+                     [(ngModel)]="priorityList.normal"
+                     (ngModelChange)="getTasks(); saveNormal()"
+                      >
               Normal
             </label>
             <br> <!-- ????-->
             <label>
-              <input type="checkbox" name="priority" value="high">
+              <input type="checkbox" name="priority" value="high"
+                     [(ngModel)]="priorityList.high"
+                     (ngModelChange)="getTasks(); saveHigh()">
               High
             </label>
         </div>
@@ -54,7 +62,7 @@
     *ngIf="tasks; else loading"
   >
     <app-task
-      *ngFor="let task of tasks"
+      *ngFor="let task of tasks | filterTasks:priorityList"
       [task]="task"
     ></app-task>
   </div>

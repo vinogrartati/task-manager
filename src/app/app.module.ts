@@ -15,6 +15,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from "./in-memory-data.service";
 import {CommonModule} from "@angular/common";
+import {FilterPipe} from "./shared/filter.pipe";
+import { FilterComponent } from './shared/components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {CommonModule} from "@angular/common";
     EditPageComponent,
     TaskComponent,
     CreatePageComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    FilterPipe,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
