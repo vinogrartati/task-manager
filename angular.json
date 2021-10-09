@@ -21,9 +21,9 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/task-manager",
-            "index": "docs/index.html",
-            "main": "docs/main.ts",
-            "polyfills": "docs/polyfills.ts",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -31,7 +31,7 @@
               "src/assets"
             ],
             "styles": [
-              "docs/styles.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -90,7 +90,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "docs/polyfills.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
@@ -99,7 +99,7 @@
               "src/assets"
             ],
             "styles": [
-              "docs/styles.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }
