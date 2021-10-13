@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Task} from "../shared/interfaces";
 import {TasksService} from "../shared/tasks.service";
 import {Router} from "@angular/router";
+import * as moment from "moment";
 
 @Component({
   selector: 'app-create-page',
@@ -37,8 +38,9 @@ export class CreatePageComponent implements OnInit {
       title: this.form.value.title,
       description: this.form.value.description,
       priority: this.form.value.priority,
-      label: this.form.value.label,
-      date: new Date()
+      labels: this.form.value.labels,
+      date: moment(new Date()).locale('ru').fromNow(),
+      timestamp: moment(new Date()).unix()
     }
 
     this.taskService.addTask(task)

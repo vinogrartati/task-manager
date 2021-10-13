@@ -2,7 +2,7 @@
   <h1>Просмотр</h1>
   <app-back-button></app-back-button>
   <button [routerLink]="['/task', '123', 'edit']">Редактировать</button>
-  <button>Удалить</button>
+  <button (click)="delete(2)">Удалить</button>
   <div class="taskData">
     <div>Название задачи</div>
     <div>Дата создания</div>

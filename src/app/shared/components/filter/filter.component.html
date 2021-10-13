@@ -1,43 +1,47 @@
-<div class="priority-label background-elements layout-elements">
-  <div>
-    <h5>Приоритет</h5>
-    <label>
-      <input type="checkbox" name="priority" value="low"
-             [(ngModel)]="priorityList.low"
-             (ngModelChange)="getTasks(); saveLow()">
-      Low
-    </label>
-    <br>
-    <label>
-      <input type="checkbox" name="priority" value="normal"
-             [(ngModel)]="priorityList.normal"
-             (ngModelChange)="getTasks(); saveNormal()"
-      >
-      Normal
-    </label>
-    <br>
-    <label>
-      <input type="checkbox" name="priority" value="high"
-             [(ngModel)]="priorityList.high"
-             (ngModelChange)="getTasks(); saveHigh()">
-      High
-    </label>
-  </div>
-  <div>
-    <h5>Отметка</h5>
-    <label>
-      <input type="checkbox" name="priority" value="research">
-      Research
-    </label>
-    <br>
-    <label>
-      <input type="checkbox" name="priority" value="design">
-      Design
-    </label>
-    <br>
-    <label>
-      <input type="checkbox" name="priority" value="development">
-      Development
-    </label>
-  </div>
+<div>
+  <h5>Приоритет</h5>
+  <label>
+    <input type="checkbox" name="priority" value="low"
+           [(ngModel)]="priorityList.low"
+           (ngModelChange)="getTasks(); saveLow()">
+    Low
+  </label>
+  <br>
+  <label>
+    <input type="checkbox" name="priority" value="normal"
+           [(ngModel)]="priorityList.normal"
+           (ngModelChange)="getTasks(); saveNormal()"
+    >
+    Normal
+  </label>
+  <br>
+  <label>
+    <input type="checkbox" name="priority" value="high"
+           [(ngModel)]="priorityList.high"
+           (ngModelChange)="getTasks(); saveHigh()">
+    High
+  </label>
+</div>
+<div>
+  <h5>Отметка</h5>
+  <label>
+    <input type="checkbox" name="priority" value="research"
+           [(ngModel)]="labelsList.research"
+           (ngModelChange)="getTasks(); saveResearch()">
+    Research
+  </label>
+  <br>
+  <label>
+    <input type="checkbox" name="priority" value="design"
+           [(ngModel)]="labelsList.design"
+           (ngModelChange)="getTasks(); saveDesign()">
+    Design
+  </label>
+  <br>
+  <label>
+    <input type="checkbox" name="priority" value="development"
+           [(ngModel)]="labelsList.development"
+           (ngModelChange)="getTasks(); saveDevelopment()">
+    Development
+  </label>
 </div>

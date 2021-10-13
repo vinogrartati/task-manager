@@ -16,4 +16,13 @@ export class TasksService {
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.tasksUrl)
   }
+
+  deleteTask(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.tasksUrl}/${id}`)
+  }
+
+  getTask(id: number): Observable<Task> {
+    return this.http.get<Task>(`${this.tasksUrl}/${id}`)
+  }
 }
+

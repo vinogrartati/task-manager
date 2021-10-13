@@ -1,70 +1,26 @@
 <div class="grid-main">
   <button routerLink="/create" class="grid-button button-blue">Добавить задачу</button>
   <div class="grid-filter filter-control">
-      <div class="background-elements layout-elements">
-        <h5>Сортировка</h5>
-          <label>
-            <input type="radio" name="sort" value="new"
-                   [(ngModel)]="sortBy">
-            Новые
-          </label>
-          <br> <!-- ????-->
-          <label>
-            <input type="radio" name="sort" value="old">
-            Старые
-          </label>
-      </div>
-      <div class="priority-label background-elements layout-elements">
-        <div>
-          <h5>Приоритет</h5>
-            <label>
-              <input type="checkbox" name="priority" value="low"
-                     [(ngModel)]="priorityList.low"
-                     (ngModelChange)="getTasks(); saveLow()">
-              Low
-            </label>
-            <br> <!-- ????-->
-            <label>
-              <input type="checkbox" name="priority" value="normal"
-                     [(ngModel)]="priorityList.normal"
-                     (ngModelChange)="getTasks(); saveNormal()"
-                      >
-              Normal
-            </label>
-            <br> <!-- ????-->
-            <label>
-              <input type="checkbox" name="priority" value="high"
-                     [(ngModel)]="priorityList.high"
-                     (ngModelChange)="getTasks(); saveHigh()">
-              High
-            </label>
-        </div>
-        <div>
-          <h5>Отметка</h5>
-          <label>
-            <input type="checkbox" name="priority" value="research">
-            Research
-          </label>
-          <br> <!-- ????-->
-          <label>
-            <input type="checkbox" name="priority" value="design">
-            Design
-          </label>
-          <br> <!-- ????-->
-          <label>
-            <input type="checkbox" name="priority" value="development">
-            Development
-          </label>
-        </div>
-      </div>
+    <app-sorting #sorted></app-sorting>
+    <div class="priority-label background-elements layout-elements">
+      <app-filter #filterTasks></app-filter>
+    </div>
   </div>
   <div class="grid-tasks"
-    *ngIf="tasks; else loading"
+       *ngIf="tasks; else loading"
   >
-    <app-task
-      *ngFor="let task of tasks | filterTasks:priorityList"
-      [task]="task"
-    ></app-task>
+    <div *ngIf="filterTasks.tasks; else firstInit">
+      <app-task
+        *ngFor="let task of filterTasks.tasks | filterTasks:filterTasks.priorityList:filterTasks.labelsList | sortTasks:sorted.sortBy"
+        [task]="task"
+      ></app-task>
+    </div>
+    <ng-template #firstInit>
+      <app-task
+        *ngFor="let task of tasks | filterTasks:filterTasks.priorityList:filterTasks.labelsList | sortTasks:sorted.sortBy"
+        [task]="task"
+      ></app-task>
+    </ng-template>
   </div>
   <ng-template #loading>
     <p>Загрузка задач...</p>

@@ -2,7 +2,6 @@ import {Component, DoCheck, OnDestroy, OnInit} from '@angular/core';
 import {TasksService} from "../shared/tasks.service";
 import {Subscription} from "rxjs";
 import {Task} from "../shared/interfaces";
-import {combineAll} from "rxjs/operators";
 
 @Component({
   selector: 'app-home-page',
