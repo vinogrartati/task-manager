@@ -1,4 +1,4 @@
-<div>
+<div class="create-page">
   <app-back-button></app-back-button>
   <div class="background-elements layout-elements">
     <form class="form" [formGroup]="form" (ngSubmit)="submit()">
@@ -6,6 +6,7 @@
         [ngClass]="{ invalid: form.get('title')?.touched &&
         form.get('title')?.invalid }"
       >
+        <h5>Название задачи</h5>
         <label for="title">Название задачи</label>
         <input id="title" type="text" class="form-title" formControlName="title">
         <div
@@ -16,16 +17,18 @@
         </div>
       </div>
       <div>
-        <label>Приоритет</label>
-        <select formControlName="priority">
+        <h5>Приоритет</h5>
+        <label for="priority">Приоритет</label>
+        <select id="priority" formControlName="priority">
           <option value="low">Low</option>
           <option value="normal">Normal</option>
           <option value="high">High</option>
         </select>
       </div>
       <div>
-        <label>Отметки</label>
-        <select formControlName="label" multiple>
+        <h5>Отметки</h5>
+        <label for="labels">Отметки</label>
+        <select id="labels" formControlName="labels" multiple>
           <option value="research">Research</option>
           <option value="design">Design</option>
           <option value="development">Development</option>
@@ -35,6 +38,7 @@
         [ngClass]="{ invalid: form.get('description')?.touched &&
         form.get('description')?.invalid }"
       >
+        <h5>Описание</h5>
         <label for="description">Описание</label>
         <textarea id="description" rows="10" class="form-description" formControlName="description"></textarea>
         <div

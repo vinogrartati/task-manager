@@ -24,5 +24,9 @@ export class TasksService {
   getTask(id: number): Observable<Task> {
     return this.http.get<Task>(`${this.tasksUrl}/${id}`)
   }
+
+  updateTask(task: Task) {
+    return this.http.put(this.tasksUrl, task)
+  }
 }
 

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SortingComponent implements OnInit {
 
-  sortBy: any = localStorage.getItem('sortBy') === null ? '' : localStorage.getItem('sortBy');
+  sortBy: any = localStorage.getItem('sortBy') === null ? 'new' : localStorage.getItem('sortBy');
   constructor() { }
 
   ngOnInit(): void {

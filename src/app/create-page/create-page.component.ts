@@ -15,7 +15,7 @@ export class CreatePageComponent implements OnInit {
   tasks: Task[]
   form: FormGroup;
   constructor(
-    private taskService: TasksService,
+    private tasksService: TasksService,
     private router: Router
   ) {
   }
@@ -24,9 +24,9 @@ export class CreatePageComponent implements OnInit {
       title: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
       priority: new FormControl('normal'),
-      label: new FormControl([])
+      labels: new FormControl([])
     })
-    this.taskService.getTasks()
+    this.tasksService.getTasks()
       .subscribe(tasks => this.tasks = tasks);
   }
   submit() {
@@ -43,7 +43,8 @@ export class CreatePageComponent implements OnInit {
       timestamp: moment(new Date()).unix()
     }
 
-    this.taskService.addTask(task)
+
+    this.tasksService.addTask(task)
       .subscribe(task => {
         this.tasks.push(task);
       })

@@ -1,13 +1,33 @@
-<div class="task">
-  <h1>Просмотр</h1>
-  <app-back-button></app-back-button>
-  <button [routerLink]="['/task', '123', 'edit']">Редактировать</button>
-  <button (click)="delete(2)">Удалить</button>
-  <div class="taskData">
-    <div>Название задачи</div>
-    <div>Дата создания</div>
-    <div>Приоритет</div>
-    <div>Отметки</div>
-    <div>Описание</div>
+<div class="task-page">
+  <div *ngIf="task; else loading">
+    <div *ngIf="task.id">
+      <div class="all-buttons">
+        <div>
+          <button class="back-button button-white" [routerLink]="'/'">Назад</button>
+          <button class="button-blue"
+                  [routerLink]="['/task', task.id, 'edit']">
+            Редактировать</button>
+        </div>
+        <button class="button-red delete-button"
+                (click)="delete(task.id)">
+          Удалить</button>
+      </div>
+    </div>
+
+    <div class="background-elements layout-elements">
+      <h5>Название задачи</h5>
+      <div>{{task.title}}</div>
+      <h5>Дата создания</h5>
+      <div>{{task.date}}</div>
+      <h5>Приоритет</h5>
+      <div>{{task.priority}}</div>
+      <h5>Отметки</h5>
+      <div>{{task.labels}}</div>
+      <h5>Описание</h5>
+      <div>{{task.description}}</div>
+    </div>
   </div>
+  <ng-template #loading>
+    <p>Загрузка страницы...</p>
+  </ng-template>
 </div>

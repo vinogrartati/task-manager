@@ -19,7 +19,6 @@ export class FilterTasksPipe implements PipeTransform {
     if (this.priorityFilterList.length === Object.keys(priorityList).length && this.labelsFilterList.length === Object.keys(labelsList).length) {
       return tasks;
     }
-    // console.log(tasks.filter((task: { priority: string; }) => this.priorityFilterList.includes(task.priority)))
     return tasks
       .filter((task: { priority: string; }) => this.priorityFilterList.includes(task.priority))
       .filter((task: { labels: string[] }) => {

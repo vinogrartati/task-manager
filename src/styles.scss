@@ -14,7 +14,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   background-color: #f8fafe;
-  color: #434343;
+  color: #464646;
 }
 
 li {
@@ -30,22 +30,21 @@ a {
   text-decoration: none;
 }
 
-li.active a {
-  color: var(--dark-color);
-  font-weight: bold;
-  cursor: default;
-}
 
 button {
   border: 0;
   border-radius: 5px;
   cursor: pointer;
   height: 50px;
+  padding: 15px;
+
+  font-size: 16px;
 }
 
 h5 {
   text-transform: uppercase;
   margin-bottom: 5px;
+  color: #777777;
 }
 
 //стандартное отображение элементов формы
@@ -58,7 +57,6 @@ textarea:focus, input:focus {
 .button-blue {
   background-color: #0590dd;
   color: #fff;
-  font-size: 18px;
 }
 
 .button-blue:hover {
@@ -73,18 +71,27 @@ textarea:focus, input:focus {
 //белая кнопка
 .button-white {
   background-color: #fff;
-  border: 2px solid #eeeff0;
+  border: 1px solid #eeeff0;
+  color: #454545;
 }
 
 .button-white:hover {
   background-color: #cecece;
 }
 
+.button-red {
+  background-color: #f34948;
+  color: #fff;
+}
+
+.button-red:hover {
+  background-color: #e97678;
+}
 
 // оформление фона и обводки для элементов
 .background-elements {
   background: #fff;
-  border: 2px solid #eeeff0;
+  border: 1px solid #eeeff0;
 }
 
 // отступы элементов
@@ -110,6 +117,7 @@ select {
 label {
   display: block;
 }
+
 
 //оформление чекбокса
 //input {

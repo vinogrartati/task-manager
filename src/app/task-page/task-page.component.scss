@@ -1,0 +1,31 @@
+.task-page {
+  width: 60%;
+  padding-top: 30px;
+  margin: 0 auto;
+}
+
+.all-buttons {
+  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.back-button {
+  margin-right: 10px;
+}
+
+.delete-button {
+  margin-right: 10px;
+}
+
+.background-elements div {
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+  .task-page {
+    width: 90%;
+  }
+}

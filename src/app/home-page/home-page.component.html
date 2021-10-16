@@ -2,9 +2,7 @@
   <button routerLink="/create" class="grid-button button-blue">Добавить задачу</button>
   <div class="grid-filter filter-control">
     <app-sorting #sorted></app-sorting>
-    <div class="priority-label background-elements layout-elements">
-      <app-filter #filterTasks></app-filter>
-    </div>
+    <app-filter #filterTasks></app-filter>
   </div>
   <div class="grid-tasks"
        *ngIf="tasks; else loading"

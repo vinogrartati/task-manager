@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TasksService} from "../shared/tasks.service";
 import {Task} from "../shared/interfaces";
 import {Subscription} from "rxjs";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {switchMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-task-page',
@@ -15,11 +17,19 @@ export class TaskPageComponent implements OnInit {
   tSub: Subscription
 
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private tasksService: TasksService
   ) { }
 
   ngOnInit(): void {
-    //this.task = this.tasksService.getTask()
+    this.route.params.pipe(
+      switchMap((params: Params) => {
+        return this.tasksService.getTask(params['id'])
+      })
+    ).subscribe((task: Task) => {
+      this.task = task;
+    })
   }
 
   getTasks(): void {
@@ -28,8 +38,7 @@ export class TaskPageComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.tasksService.deleteTask(id).subscribe(() => {
-      this.tasks = this.tasks.filter(task => task.id !== id)
-    })
+    this.tasksService.deleteTask(id).subscribe()
+    this.router.navigate(['/'])
   }
 }
