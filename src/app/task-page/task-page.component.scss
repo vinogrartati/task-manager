@@ -1,12 +1,8 @@
 .task-page {
-  width: 60%;
-  padding-top: 30px;
-  margin: 0 auto;
+  padding-top: 0;
 }
 
 .all-buttons {
-  margin-bottom: 20px;
-
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -21,11 +17,14 @@
 }
 
 .background-elements div {
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 
-@media screen and (max-width: 1000px) {
-  .task-page {
-    width: 90%;
-  }
+.description {
+  text-align: justify;
+}
+
+.layout-elements {
+  margin-top: 0;
 }

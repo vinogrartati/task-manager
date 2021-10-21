@@ -3,9 +3,11 @@
     <h2>{{ task.title }}</h2>
     <p>Создано: {{ task.date }}</p>
     <p>Приоритет: {{ task.priority }}</p>
-    <p>Отметки: {{ task.labels }}</p>
+    <p>Отметки: {{ task.labels.join(', ') }}</p>
   </div>
   <button class="hide-button"
           [routerLink]="['/task', task.id]"
-  >Открыть</button>
+  >
+    Открыть
+  </button>
 </div>

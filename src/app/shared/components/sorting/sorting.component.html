@@ -1,16 +1,13 @@
 <div class="background-elements layout-elements">
   <h5>Сортировка</h5>
-  <label>
-    <input type="radio" name="sort" value="new"
-           [(ngModel)]="sortBy"
-           (ngModelChange)="saveSort()">
-    Новые
-  </label>
-  <br>
-  <label>
-    <input type="radio" name="sort" value="old"
-           [(ngModel)]="sortBy"
-           (ngModelChange)="saveSort()">
-    Старые
-  </label>
+  <input id="new-sort" type="radio" name="sort" value="new" class="sort-input"
+         [(ngModel)]="sortBy"
+         (ngModelChange)="saveSort()"
+  >
+  <label for="new-sort">Новые</label>
+  <input id="old-sort" type="radio" name="sort" value="old" class="sort-input"
+         [(ngModel)]="sortBy"
+         (ngModelChange)="saveSort()"
+  >
+  <label for="old-sort">Старые</label>
 </div>

@@ -7,3 +7,7 @@ export interface Task {
   timestamp: number,
   date: any,
 }
+
+export interface list {
+  [key: string]: boolean
+}

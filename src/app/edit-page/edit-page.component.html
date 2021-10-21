@@ -2,12 +2,8 @@
   <div *ngIf="form; else loading">
     <app-back-button></app-back-button>
     <div class="background-elements layout-elements">
-      <form [formGroup]="form" (ngSubmit)="submit()"
-            class="form">
-        <div
-          [ngClass]="{ invalid: form.get('title')?.touched &&
-            form.get('title')?.invalid }"
-        >
+      <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+        <div>
           <h5>Название задачи</h5>
           <label for="title">Название задачи</label>
           <input id="title" type="text" class="form-title" formControlName="title">
@@ -20,32 +16,32 @@
         </div>
         <div>
           <h5>Приоритет</h5>
-          <label for="priority">Приоритет</label>
-          <select id="priority" formControlName="priority">
-            <option value="low">Low</option>
-            <option value="normal">Normal</option>
-            <option value="high">High</option>
-          </select>
+            <div class="form-priority">
+                <label for="priority">Приоритет</label>
+                <select id="priority" formControlName="priority" class="priority">
+                  <option value="low">low</option>
+                  <option value="normal">normal</option>
+                  <option value="high">high</option>
+                </select>
+            </div>
         </div>
         <div>
           <h5>Отметки</h5>
           <label for="labels">Отметки</label>
-          <select id="labels" formControlName="labels" multiple>
-            <option value="research">Research</option>
-            <option value="design">Design</option>
-            <option value="development">Development</option>
+          <select id="labels" formControlName="labels" multiple class="labels">
+            <option value="research">research</option>
+            <option value="design">design</option>
+            <option value="development">development</option>
           </select>
         </div>
-        <div
-          [ngClass]="{ invalid: form.get('description')?.touched &&
-            form.get('description')?.invalid }"
-        >
+        <div>
           <h5>Описание</h5>
           <label for="description">Описание</label>
           <textarea id="description" rows="10" class="form-description" formControlName="description"></textarea>
           <div
             *ngIf="form.get('description')?.touched &&
-             form.get('description')?.invalid">
+             form.get('description')?.invalid"
+          >
             <small>Описание не может быть пустым</small>
           </div>
         </div>

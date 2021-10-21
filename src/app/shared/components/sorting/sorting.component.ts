@@ -1,19 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-sorting',
-  templateUrl: './sorting.component.html',
-  styleUrls: ['./sorting.component.scss']
+  templateUrl: './sorting.component.html'
 })
-export class SortingComponent implements OnInit {
-
+export class SortingComponent {
   sortBy: any = localStorage.getItem('sortBy') === null ? 'new' : localStorage.getItem('sortBy');
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   saveSort() {
-    localStorage.setItem('sortBy', String(this.sortBy))
+    localStorage.setItem('sortBy', String(this.sortBy));
   }
 }
